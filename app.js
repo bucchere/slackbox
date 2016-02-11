@@ -74,7 +74,7 @@ app.post('/store', function(req, res) {
             .then(function(data) {
               return res.send('Track added: *' + track.name + '* by *' + track.artists[0].name + '*');
             }, function(err) {
-              return res.send(process.env + 'error: ' + err.message);
+              return res.send('playlist id = ' + process.env.SPOTIFY_PLAYLIST_ID + ' | error: ' + err.message);
 							//return res.send(err.message);
             });
         }, function(err) {
