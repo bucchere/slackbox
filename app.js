@@ -19,8 +19,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', function(req, res) {
-  if (spotifyApi.getAccessToken()) {
-    return res.send('You are logged in.');
+  var token = spotifyApi.getAccessToken();
+  if (token) {
+    return res.send(token);
   }
   return res.send('<a href="/authorise">Authorise</a>');
 });
